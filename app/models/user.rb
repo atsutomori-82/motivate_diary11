@@ -3,4 +3,14 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_many :diary
+
+  with_option presence: true do
+    validates :nickname, length: { maximum: 10 }
+  end
+
+  VALID_PASSWORD_REGEX = /\A[a-z0-9]+\z/i.freeze
+  validates :password, format: { with: VALID_PASSWORD_REGEX }
+  
 end
