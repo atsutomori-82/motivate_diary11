@@ -6,11 +6,11 @@ class User < ApplicationRecord
 
   has_many :diary
 
-  with_option presence: true do
+  with_options presence: true do
     validates :nickname, length: { maximum: 10 }
   end
 
   VALID_PASSWORD_REGEX = /\A[a-z0-9]+\z/i.freeze
   validates :password, format: { with: VALID_PASSWORD_REGEX }
-  
+
 end
