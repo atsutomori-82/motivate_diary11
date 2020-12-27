@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    attrivutes:
+      user:
+        nickname: 呼んでほしい名前
+      diary:
+        text: テキスト
+        image: 画像
