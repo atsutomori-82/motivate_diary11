@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :diary
 
   with_options presence: true do
-    validates :nickname, length: { maximum: 10 }
+    validates :nickname, length: { maximum: 8 }
   end
 
   VALID_PASSWORD_REGEX = /\A[a-z0-9]+\z/i.freeze
