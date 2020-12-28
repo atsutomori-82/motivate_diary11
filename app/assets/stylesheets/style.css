@@ -34,6 +34,12 @@ input {
   }
 }
 
+.header {
+  height: 200;
+  width: 300;
+  display: block;
+}
+
 .login-form {
   //background: #222;
   //box-shadow: 0 0 1rem rgba(0,0,0,0.3);
