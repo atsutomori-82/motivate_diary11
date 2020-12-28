@@ -1,4 +1,15 @@
-これは"diaries#index"です
-<br>
-ログアウトしますか？
-<%= link_to "はい", destroy_user_session_path, mesthod: :delete %>
+<%= link_to image_tag("motivate_diary_logo.png", class:"motivate-diary-icon"), "/" %><br/>
+motivate diary
+<br/>
+ログアウトしますか?
+<div class='nav'>
+<ul class='lists'>
+<% if user_signed_in? %>
+ <li><%= link_to current_user.nickname, class: "user-nickname" %></li>
+ <li><%= link_to "はい", destroy_user_session_path, method: :delete, class: "log out" %>
+<% else %>
+  <li><%= link_to 'ログイン', new_user_session_path, class: "ログイン" %>
+  <li><%= link_to '新規登録', new_user_registration_path, class: "新規登録" %>
+<% end %>
+</ul>
+</div>
