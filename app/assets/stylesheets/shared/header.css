@@ -1,0 +1,23 @@
+.diary-btn {
+  width: 100px;
+  background: #eaa6a6;
+  text-align: center;
+  border-radius: 15%;
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  padding: 15px;
+}
+
+.diary-btn-text {
+  color: #4a488e;
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-bottom: 5px;
+}
+
+.diary-btn-icon {
+  width: 50%;
+}

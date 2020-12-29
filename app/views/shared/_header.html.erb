@@ -5,12 +5,12 @@
       <div class='nav'>
         <%= link_to( new_diary_path, class: 'diary-btn') do %>
           <span class='diary-btn-text'>投稿する</span>
-          <%=image_tag '' , size: '185x50' ,class: "diary-btn-icon" %>
+          <%=image_tag 'ペン先.png' , size: '50x50' ,class: "diary-btn-icon" %>
         <% end %>
         <ul class='lists'>
           <% if user_signed_in? %>
-          <li><%= link_to current_user.nickname, class: "user-nickname" %></li>
-          <li><%= link_to "はい", destroy_user_session_path, method: :delete, class: "log out" %>
+          <li><%= link_to "#{current_user.nickname}さん", class: "user-nickname" %></li>
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "log out" %>
         <% else %>
           <li><%= link_to 'ログイン', new_user_session_path, class: "ログイン" %>
           <li><%= link_to '新規登録', new_user_registration_path, class: "新規登録" %>
