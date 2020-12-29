@@ -12,4 +12,10 @@ class Diary < ApplicationRecord
     validates :motivation_id
     validates :work_volume_id
   end
+
+  extend AcriveHash::Associations::ActiveRecordExtensions
+  belongs_to :condition
+  belongs_to :motivation
+  belongs_to :work_volume  
+
 end
