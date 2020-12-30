@@ -1,4 +1,21 @@
 <%= render "shared/header" %>
 投稿フォーム
-<%= form_with model: @diary do |f| %>
-<%= end %>
+<%= form_with(model: @diary, local: true) do |form| %>
+<h3>
+投稿する
+</h3>
+<%#= render 'layouts/error_messages', model: form.object %>
+<% end %>
+<%= form_with model: @diary, url:diaries_path, local: true do |f| %>
+    <%= f.text_field :image, placeholder: "追加画像" %>
+    <%= f.text_area :calender_date, placeholder: "日付", rows: "1" %>
+    <%= f.text_area :text, placeholder: "出来事", rows: "7" %>
+    "この日の体調"
+    <%= f.collection_select(:condition, Condition.all, :id, :name, {}, {class:"answer-select"}) %>
+    "この日のモチベーション"
+    <%= f.collection_select(:motivation, Motivation.all, :id, :name, {}, {class:"answer-select"}) %>
+    "この日のボリューム"
+    <%= f.collection_select(:work_volume, WorkVolume.all, :id, :name, {}, {class:"answer-select"}) %>
+    <%= f.submit "保存" %>
+<% end %>
+

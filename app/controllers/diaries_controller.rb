@@ -10,6 +10,7 @@ before_action :authenticate_user!, except: [:index]
   end
 
   def create
+    Diary.create(diary_params)
     @diary = Diary.new(diary_params)
     if @diary.save
       redirect_to root_path
@@ -21,4 +22,8 @@ before_action :authenticate_user!, except: [:index]
   def destroy
   end
 
+  private
+  def diary_params
+    params.require(:diary).permit(:image, :text, :condition_id, :motivation_id, :work_volume_id).merge(user_id: current_user.id)
+  end
 end

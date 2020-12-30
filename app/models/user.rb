@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :diary
+  has_many :diaries
 
   with_options presence: true do
     validates :nickname, length: { maximum: 8 }
