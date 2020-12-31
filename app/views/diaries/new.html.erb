@@ -4,7 +4,7 @@
 <h3>
 投稿する
 </h3>
-<%#= render 'layouts/error_messages', model: form.object %>
+<%= render 'layouts/error_messages', model: form.object %>
 <% end %>
 <%= form_with model: @diary, url:diaries_path, local: true do |f| %>
     <%= f.text_field :image, placeholder: "追加画像" %>

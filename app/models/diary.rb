@@ -1,6 +1,7 @@
 class Diary < ApplicationRecord
   belongs_to :users
   has_many :cheer_up
+  has_one_attached :image
 
   with_options presence: true do
     validates :calendar_date
