@@ -6,7 +6,7 @@ class Motivation < ActiveHash::Base
     { id: 4, name: 'モチベーション低め'}
   ]
 
-  include AcriveHash::Associations
+  include ActiveHash::Associations
   has_many :diaries
 
 end

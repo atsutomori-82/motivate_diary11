@@ -6,7 +6,7 @@ class WorkVolume < ActiveHash::Base
     { id: 4, name: '少し軽め'}
   ]
 
-  include AcriveHash::Associations
+  include ActiveHash::Associations
   has_many :diaries
 
 end

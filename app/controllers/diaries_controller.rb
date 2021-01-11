@@ -1,5 +1,5 @@
 class DiariesController < ApplicationController
-before_action :authenticate_user!, except: [:index]
+before_action :authenticate_user!, except: [:index, :new]
 
   def index
     @diaries = Diary.all.order('created_at DESC')
@@ -10,11 +10,9 @@ before_action :authenticate_user!, except: [:index]
   end
 
   def create
-    #Diary.create(diary_params)
     @diary = Diary.new(diary_params)
-    binding.pry
     if @diary.save
-      redirect_to root_path
+       redirect_to root_path
     else
       render :new
     end
@@ -25,6 +23,6 @@ before_action :authenticate_user!, except: [:index]
 
   private
   def diary_params
-    params.require(:diary).permit(:image, :calendar_date, :text, :condition_id, :motivation_id, :work_volume_id).merge(user_id: current_user.id)
+    params.require(:diary).permit(:calendar_date, :text, :condition_id, :motivation_id, :work_volume_id, :image).merge(user_id: current_user.id)
   end
 end

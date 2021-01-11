@@ -1,7 +1,12 @@
 class Diary < ApplicationRecord
-  belongs_to :users
+  belongs_to :user
   has_many :cheer_up
-  has_one_attached :image
+  has_many_attached :image
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :condition
+  belongs_to :motivation
+  belongs_to :work_volume  
 
   with_options presence: true do
     validates :calendar_date
@@ -14,9 +19,6 @@ class Diary < ApplicationRecord
     validates :work_volume_id
   end
 
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :condition
-  belongs_to :motivation
-  belongs_to :work_volume  
+  
 
 end

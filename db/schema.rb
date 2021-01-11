@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2020_12_30_103537) do
   end
 
   create_table "diaries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "calendar_date", null: false
+    t.date "calendar_date", null: false
     t.text "text", null: false
     t.integer "condition_id", null: false
     t.integer "motivation_id", null: false

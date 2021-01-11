@@ -6,7 +6,7 @@ class Condition < ActiveHash::Base
     { id: 4, name: 'あまり良くなかった' }
   ]
 
-  include AcriveHash::Associations
+  include ActiveHash::Associations
   has_many :diaries
 
 end

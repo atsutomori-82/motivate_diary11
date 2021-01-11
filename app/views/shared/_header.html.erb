@@ -1,6 +1,6 @@
 <header class='top-page-header'>
     <div class='search-bar-contents'>
-      <%#= link_to image_tag("motivate_diary_logo.png",size: '700x150', class:"motivate-diary-icon"), "/" %><br/>
+      <%= link_to image_tag("motivate_diary_logo.png",size: '700x150', class:"motivate-diary-icon"), "/" %><br/>
     </div>
       <div class='nav'>
         <%= link_to( new_diary_path, class: 'diary-btn') do %>
@@ -10,10 +10,10 @@
         <ul class='lists'>
           <% if user_signed_in? %>
           <li><%= link_to "#{current_user.nickname}さん", class: "user-nickname" %></li>
-          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "log out" %>
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout" %>
         <% else %>
-          <li><%= link_to 'ログイン', new_user_session_path, class: "ログイン" %>
-          <li><%= link_to '新規登録', new_user_registration_path, class: "新規登録" %>
+          <li><%= link_to 'ログイン', new_user_session_path, class: "login" %>
+          <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %>
         <% end %>
         </ul>
         </div>
