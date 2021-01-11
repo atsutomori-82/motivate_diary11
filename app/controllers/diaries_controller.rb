@@ -11,6 +11,7 @@ before_action :authenticate_user!, except: [:index, :new]
 
   def create
     @diary = Diary.new(diary_params)
+
     if @diary.save
        redirect_to root_path
     else
@@ -18,7 +19,16 @@ before_action :authenticate_user!, except: [:index, :new]
     end
   end
 
+  def show
+    # @diary = Diary.find_by(id: paramas[:id])
+    # @user = User.find_by(id: @diary.user_id)
+  end
+
   def destroy
+    if current_user.id == @diary.user_id
+      @diary.destroy
+    end
+      redirect_to root_path
   end
 
   private
