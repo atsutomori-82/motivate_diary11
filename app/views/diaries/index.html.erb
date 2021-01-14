@@ -1,14 +1,8 @@
 <%= render "shared/header" %>
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
   <!--meta name="viewport" content="width=device-width, initial-scale=1.0"-->
   <title>motivate diary</title>
   <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css">
   <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
     <div id="header" class="container">
       <h1><a href="">motivate diary</a></h1>
       <ul class="menu">
@@ -25,7 +19,10 @@
 
         
         <div class="post">
+        <% @diaries.each do |diary| %>
+              <li class='list'>
           <div class="post-header">
+          
             <h2>
               <a href="">タイトル</a>
             </h2>
@@ -38,8 +35,19 @@
               <img src="img/noimage.png" width="100" height="100">
             </div>
             <div class="post-body">
+            
+                <div class='diary-info'>
+                  <h4 class='diary-date'>
+                    <%= diary.calendar_date%>
+                </div>
+              </li>
+               <% end %>
               <p>本文。本文。本文。本文。本文。本文。本文。本文。本文。本文。本文。本文。本文。本文。本文。本文。本文。本文。本文。本文。本文。本文。</p>
             </div>
+          </div>
+           
+          <div class="contents row">
+            <%# <%= diary_lists(@diaries)%>
           </div>
 
 
@@ -61,10 +69,14 @@
         </div>
     </div><!-- /sidebar -->
     </div><!-- /main -->
+    <div class='nav'>
+        <%= link_to( new_diary_path, class: 'diary-btn') do %>
+          <span class='diary-btn-text'>投稿する</span>
+          <%=image_tag 'ペン先.png' , size: '50x50' ,class: "diary-btn-icon" %>
+        <% end %>
+    </div>
     <div id="footer" class="container">
     footer
     </div><!-- /footer -->
-</body>
-</html>
 
 <%= render "shared/footer" %>

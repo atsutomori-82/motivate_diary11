@@ -1,7 +1,7 @@
 class Diary < ApplicationRecord
   belongs_to :user
   has_many :cheer_up
-  has_many_attached :image
+  has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :condition

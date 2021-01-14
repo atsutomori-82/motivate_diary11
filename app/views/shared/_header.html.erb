@@ -2,11 +2,7 @@
     <div class='search-bar-contents'>
       <%= link_to image_tag("motivate_diary_logo.png",size: '700x150', class:"motivate-diary-icon"), "/" %><br/>
     </div>
-      <div class='nav'>
-        <%= link_to( new_diary_path, class: 'diary-btn') do %>
-          <span class='diary-btn-text'>投稿する</span>
-          <%=image_tag 'ペン先.png' , size: '50x50' ,class: "diary-btn-icon" %>
-        <% end %>
+      
         <ul class='lists'>
           <% if user_signed_in? %>
           <li><%= link_to "#{current_user.nickname}さん", class: "user-nickname" %></li>

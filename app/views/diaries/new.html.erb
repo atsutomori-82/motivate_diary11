@@ -2,16 +2,17 @@
 <header class="diary-write-header">
     <%= link_to image_tag('motivate_diary_logo.png' , size: '420x90'), "/" %>
   </header>
-<%= form_with model: @diary, url:diaries_path, local: true do |f| %>
+
 <h3>
 日記を書く
 </h3>
 <body>
+<%= form_with model: @diary, url:diaries_path, local: true do |f| %>
 <%= render 'layouts/error_messages', model: @diary %>
 <%# end %>
 <%#= form_with model: @diary, url:diaries_path, local: true do |f| %>
   <div>
-    <%= f.text_field :image, placeholder: "今日の画像" %>
+    <%#= f.text_field :image, placeholder: "今日の画像" %>
   </div>
   <div>
     <%= f.date_select :calendar_date%>
