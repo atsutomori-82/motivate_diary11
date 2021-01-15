@@ -32,7 +32,9 @@ before_action :authenticate_user!, except: [:index, :new]
   end
 
   private
+
   def diary_params
-    params.require(:diary).permit(:calendar_date, :text, :condition_id, :motivation_id, :work_volume_id).merge(user_id: current_user.id)
+    params.require(:diary).permit(:calendar_date, :text, :condition_id, :motivation_id, :work_volume_id, :image).merge(user_id: current_user.id)
   end
+  
 end

@@ -19,6 +19,9 @@ class Diary < ApplicationRecord
     validates :work_volume_id
   end
 
-  
+  validates :diary, presence: true, unless: :was_attacher?
+  def was_attacher?
+    self.image.attached?
+  end  
 
 end

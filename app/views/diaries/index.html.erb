@@ -21,28 +21,57 @@
         <div class="post">
         <% @diaries.each do |diary| %>
               <li class='list'>
+              <%= link_to diary_path(diary.id) do %>
           <div class="post-header">
           
             <h2>
-              <a href="">タイトル</a>
+              <a href="">
+               <%= diary.calendar_date%>
+              </a>
             </h2>
             <div class="post-meta">
-              2020/12/28 [カテゴリ]
+             
             </div>
           </div>
           <div class="post-content">
             <div class="post-image">
-              <img src="img/noimage.png" width="100" height="100">
+              <%= image_tag diary.image.variant(resize: '100*100'), class: "diary-img" if diary.image.attached? %>
             </div>
             <div class="post-body">
             
                 <div class='diary-info'>
                   <h4 class='diary-date'>
-                    <%= diary.calendar_date%>
+                    
+                    [ 体調 ]
+                    <% if diary.condition_id == 1 %>
+                      <%= "絶好調" %>
+                    <% elsif diary.condition_id == 2 %>
+                      <%= "まあまあ" %>
+                    <% else diary.condition_id == 3 %>
+                      <%= "あまり良くなかった" %>
+                    <% end %><br>
+                    
+                    [ モチベーション ]
+                    <% if diary.motivation_id == 1 %>
+                      <%= "やる気に満ち溢れている" %>
+                    <% elsif diary.motivation_id == 2 %>
+                      <%= "いつも通り" %>
+                    <% else diary.motivation_id == 3 %>
+                      <%= "モチベーション低め" %>
+                    <% end %><br>
+                    [ ボリューム ]                    
+                    <% if diary.work_volume_id == 1 %>
+                      <%= "かなりキツめ" %>
+                    <% elsif diary.work_volume_id == 2 %>
+                      <%= "通常通り" %>
+                    <% else diary.work_volume_id == 3 %>
+                      <%= "やや軽め" %>
+                    <% end %><br>
+
                 </div>
               </li>
                <% end %>
-              <p>本文。本文。本文。本文。本文。本文。本文。本文。本文。本文。本文。本文。本文。本文。本文。本文。本文。本文。本文。本文。本文。本文。</p>
+             <% end %>
             </div>
           </div>
            
@@ -58,8 +87,10 @@
         <div class="prev">next</div>
     </div>
     </div><!-- /posts -->
+    
+    <!-- /sidebar -->
     <div id="sidebar">
-        <div class="wi dget">
+        <div class="widget">
           <h3>カテゴリー</h3>
           <ul>
               <li><a href="">item</a></li>
@@ -68,6 +99,7 @@
           </ul>
         </div>
     </div><!-- /sidebar -->
+    
     </div><!-- /main -->
     <div class='nav'>
         <%= link_to( new_diary_path, class: 'diary-btn') do %>
