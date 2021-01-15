@@ -6,14 +6,11 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <header class="header">
-      <%#= link_to image_tag("motivate_diary_logo.png", class:"motivate-diary-icon"), "/" %><br/>
-    </header>
     <%= yield %>
   </body>
 </html>

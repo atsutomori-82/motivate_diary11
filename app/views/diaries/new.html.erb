@@ -1,0 +1,41 @@
+<div>
+<header class="diary-write-header">
+    <%= link_to image_tag('motivate_diary_logo.png' , size: '420x90'), "/" %>
+  </header>
+
+<h3>
+日記を書く
+</h3>
+<body>
+<%= form_with model: @diary, url:diaries_path, local: true do |f| %>
+<%= render 'layouts/error_messages', model: @diary %>
+<%# end %>
+<%#= form_with model: @diary, url:diaries_path, local: true do |f| %>
+  <div>
+    <%#= f.text_field :image, placeholder: "今日の画像" %> 
+  </div>
+  <div>
+    <%= f.date_select :calendar_date%>
+  </div>  
+  <div>
+    <%= f.text_area :text, placeholder: "出来事", rows: "7" %>
+  </div>
+  <div>
+    "この日の体調"
+    <%= f.collection_select(:condition_id, Condition.all, :id, :name, {}, {class:"answer-select"}) %>
+  </div>
+  <div>
+    "この日のモチベーション"
+    <%= f.collection_select(:motivation_id, Motivation.all, :id, :name, {}, {class:"answer-select"}) %>
+  </div>
+  <div>
+    "この日のボリューム"
+    <%= f.collection_select(:work_volume_id, WorkVolume.all, :id, :name, {}, {class:"answer-select"}) %>
+  </div>
+  <div>
+    <%= f.submit "保存" %>
+    <%=link_to 'もどる', root_path, class:"back-btn" %>
+  </div>
+<% end %>
+</body>
+</div>

@@ -2,8 +2,7 @@
  <div class="login-text">
 <h3>ログイン</h3>
     <span class="fa-stack fa-lg">
-      <i class="fa fa-circle fa-stack-2x"></i>
-      <i class="fa fa-lock fa-stack-1x"></i>
+      <%=image_tag 'カギアイコン.png' , size: '30x40' ,class: "fa fa-lock fa-stack-1x" %>
     </span>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   
